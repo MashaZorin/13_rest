@@ -1,12 +1,12 @@
 from flask import Flask, render_template, redirect
 import json
-import urllib.request
+import urllib2
 
 app = Flask(__name__)
 
 def get_image_url(index):
-    data = urllib.request.urlopen('https://dscovr.gsfc.nasa.gov/api/natural?api_key=jrrseOvLIYK1RZQM7l3uVWGfP64mZysSUKs0LzR6')
-    data = json.loads(data.read().decode('utf-8'))
+    data = urllib.urlopen('https://dscovr.gsfc.nasa.gov/api/natural?api_key=jrrseOvLIYK1RZQM7l3uVWGfP64mZysSUKs0LzR6')
+    data = json.loads(data.read())
 
     im = data[index]['image']
     
